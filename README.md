@@ -1,2 +1,3 @@
-# ca-simulator
-Cellular Automata Simulator.
+# CASTOR
+
+CASTOR: Cellular Automata SimulaTOR.
