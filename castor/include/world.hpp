@@ -12,17 +12,27 @@
 
 #include <iostream>
 
+/*!
+ * \brief This class represents the world
+ */
 class World {
   private:
-    bool **world; //< World
+    bool** world; //< World
     size_t width; //< World width
     size_t height; //< World height
 
   public:
     /*!
      * \brief World constructor
+     *
+     * \param width
+     *     World width
+     * \param height
+     *     World height
+     * \param w
+     *     World population
      */
-    World(const size_t width, const size_t height);
+    World(const size_t width, const size_t height, bool** w);
 
     /*!
      * \brief World destructor
@@ -46,6 +56,19 @@ class World {
     size_t get_height();
 
     /*!
+     * \brief Check if the cell is alive
+     *
+     * \param i
+     *     Row
+     * \param j
+     *     Col
+     *
+     * \return
+     *     True if the cell is alive and false otherwise
+     */
+    bool is_alive(const size_t i, const size_t j);
+
+    /*!
      * \brief Set a cell as alive
      *
      * \param i
@@ -53,7 +76,7 @@ class World {
      * \param j
      *     Col
      */
-    void set_alive(size_t i, size_t j);
+    void set_alive(const size_t i, const size_t j);
 
     /*!
      * \brief Set a cell as dead
@@ -63,7 +86,7 @@ class World {
      * \param j
      *     Col
      */
-    void set_dead(size_t i, size_t j);
+    void set_dead(const size_t i, const size_t j);
 };
 
 #endif /* _CASTOR_WORLD_HPP_ */

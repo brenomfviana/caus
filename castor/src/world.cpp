@@ -9,16 +9,17 @@
 
 #include "world.hpp"
 
-World::World(size_t width, size_t height) {
+World::World(const size_t width, const size_t height, bool** w) {
   this->width = width;
   this->height = height;
   this->world = new bool *[this->height];
   for (size_t i = 0; i < this->height; i++) {
     this->world[i] = new bool[this->width];
   }
+  // Set the population
   for (size_t i = 0; i < this->height; i++) {
     for (size_t j = 0; j < this->width; j++) {
-      this->world[i][j] = false;
+      this->world[i][j] = w[i][j];
     }
   }
 }
@@ -38,10 +39,14 @@ size_t World::get_height() {
   return this->height;
 }
 
-void World::set_alive(size_t i, size_t j) {
+bool World::is_alive(const size_t i, const size_t j) {
+  return this->world[i][j];
+}
+
+void World::set_alive(const size_t i, const size_t j) {
   this->world[i][j] = true;
 }
 
-void World::set_dead(size_t i, size_t j) {
+void World::set_dead(const size_t i, const size_t j) {
   this->world[i][j] = false;
 }

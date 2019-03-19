@@ -30,10 +30,13 @@ endif()
 add_library(world src/world.cpp)
 target_include_directories(world PRIVATE include)
 
+add_library(cellular-automata src/cellular-automata.cpp)
+target_include_directories(cellular-automata PRIVATE include)
+
 
 ################################################################################
 # Executable
 
 add_executable(${PROJECT_NAME} src/castor.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE include ${yamlcpp_SOURCE_DIR}/include)
-target_link_libraries(${PROJECT_NAME} PUBLIC world yaml-cpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC world cellular-automata yaml-cpp)
