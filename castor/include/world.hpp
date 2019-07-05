@@ -87,6 +87,19 @@ class World {
      *     Column
      */
     void set_dead(const size_t i_, const size_t j_);
+
+    /*!
+     * Get number of alive neighbours
+     *
+     * \param i_
+     *     Row
+     * \param j_
+     *     Column
+     *
+     * \return
+     *     The number of alive neighbours
+     */
+    size_t get_no_neighbours(const size_t i_, const size_t j_);
 };
 
 #endif /* __CASTOR_WORLD_HPP__ */

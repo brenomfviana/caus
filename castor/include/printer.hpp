@@ -20,6 +20,14 @@ namespace printer {
    * \param world_
    *     World
    */
+  void print(World world_);
+
+  /*!
+   * Print the world
+   *
+   * \param world_
+   *     World
+   */
   void print(World* world_);
 }
 

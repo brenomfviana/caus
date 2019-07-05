@@ -50,3 +50,8 @@ void World::set_alive(const size_t i_, const size_t j_) {
 void World::set_dead(const size_t i_, const size_t j_) {
   this->world[i_][j_] = false;
 }
+
+size_t World::get_no_neighbours(const size_t i_, const size_t j_) {
+  // TODO
+  return 0;
+}

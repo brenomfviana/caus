@@ -37,10 +37,18 @@ target_include_directories(world PRIVATE include)
 
 add_library(printer src/printer.cpp)
 target_include_directories(printer PRIVATE include)
+target_link_libraries(printer PUBLIC world)
+
+add_library(reader src/reader.cpp)
+target_include_directories(reader PRIVATE include)
+target_link_libraries(reader PUBLIC world)
 
 add_library(cellular-automata src/cellular-automata.cpp)
 target_include_directories(cellular-automata PRIVATE include)
+target_link_libraries(cellular-automata PUBLIC world)
 
+add_library(simulator src/simulator.cpp)
+target_include_directories(simulator PRIVATE include)
 
 
 # ---------------------------------------------------------------------------- #
@@ -50,5 +58,5 @@ target_include_directories(cellular-automata PRIVATE include)
 add_executable(${PROJECT_NAME} src/castor.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE include
   ${yamlcpp_SOURCE_DIR}/include)
-target_link_libraries(${PROJECT_NAME} PUBLIC world printer cellular-automata
-  yaml-cpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC world reader printer
+  cellular-automata simulator yaml-cpp)

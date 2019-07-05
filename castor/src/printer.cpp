@@ -9,6 +9,19 @@
 
 #include "printer.hpp"
 
+void printer::print(World world_) {
+  for (size_t i = 0; i < world_.get_height(); i++) {
+    for (size_t j = 0; j < world_.get_width(); j++) {
+      if (world_.is_alive(i, j)) {
+        std::cout << "*";
+      } else {
+        std::cout << ".";
+      }
+    }
+    std::cout << "\n";
+  }
+}
+
 void printer::print(World* world_) {
   for (size_t i = 0; i < world_->get_height(); i++) {
     for (size_t j = 0; j < world_->get_width(); j++) {
