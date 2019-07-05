@@ -7,44 +7,45 @@
   terms of the MIT License.
 */
 
-#ifndef _CASTOR_UTILS_HPP_
-#define _CASTOR_UTILS_HPP_
+#ifndef __CASTOR_UTILS_HPP__
+#define __CASTOR_UTILS_HPP__
 
 #include <fstream>
-#include <iostream>
 
 namespace utils {
   /*!
-   * \brief Read world population
+   * Read world population
    *
-   * \param width
+   * \param width_
    *     World width
-   * \param height
+   * \param height_
    *     World height
-   * \param ppath
+   * \param key_
+   *     Cell key
+   * \param ppath_
    *     Path file of world population
    */
-  bool** read_population(const size_t width, const size_t height,
-    const char key, const std::string ppath) {
+  bool** read_population(const size_t width_, const size_t height_,
+    const char key_, const std::string ppath_) {
       // Create world
-      bool** world = new bool *[height];
-      for (size_t i = 0; i < height; i++) {
-        world[i] = new bool[width];
+      bool** world = new bool *[height_];
+      for (size_t i = 0; i < height_; i++) {
+        world[i] = new bool[width_];
       }
-      for (size_t i = 0; i < height; i++) {
-        for (size_t j = 0; j < width; j++) {
+      for (size_t i = 0; i < height_; i++) {
+        for (size_t j = 0; j < width_; j++) {
           world[i][j] = false;
         }
       }
       // Read file
       std::string line;
       std::ifstream population;
-      population.open(ppath);
+      population.open(ppath_);
       if (population.is_open()) {
         size_t i = 0, j = 0;
         while (getline(population, line)) {
           for(char& c : line) {
-            if (c == key) {
+            if (c == key_) {
               world[i][j] = true;
             }
             j++;
@@ -58,4 +59,4 @@ namespace utils {
   }
 }
 
-#endif /* _CASTOR_UTILS_HPP_ */
+#endif /* __CASTOR_UTILS_HPP__ */

@@ -7,15 +7,15 @@
   terms of the MIT License.
 */
 
-#ifndef _CASTOR_CELLULAR_AUTOMATA_HPP_
-#define _CASTOR_CELLULAR_AUTOMATA_HPP_
+#ifndef __CASTOR_CELLULAR_AUTOMATA_HPP__
+#define __CASTOR_CELLULAR_AUTOMATA_HPP__
 
 #include <string>
 
 class CellularAutomata {
   private:
-    int b;
-    int s;
+    size_t b; //< Birth rule
+    size_t s; //< Survive rule
 
   public:
     CellularAutomata(std::string rules) {
@@ -23,4 +23,4 @@ class CellularAutomata {
     }
 };
 
-#endif /* _CASTOR_CELLULAR_AUTOMATA_HPP_ */
+#endif /* __CASTOR_CELLULAR_AUTOMATA_HPP__ */

@@ -7,13 +7,13 @@
   terms of the MIT License.
 */
 
-#ifndef _CASTOR_WORLD_HPP_
-#define _CASTOR_WORLD_HPP_
+#ifndef __CASTOR_WORLD_HPP__
+#define __CASTOR_WORLD_HPP__
 
 #include <iostream>
 
 /*!
- * \brief This class represents the world
+ * This class represents a cellular world
  */
 class World {
   private:
@@ -23,24 +23,24 @@ class World {
 
   public:
     /*!
-     * \brief World constructor
+     * World constructor
      *
-     * \param width
+     * \param width_
      *     World width
-     * \param height
+     * \param height_
      *     World height
-     * \param w
+     * \param w_
      *     World population
      */
-    World(const size_t width, const size_t height, bool** w);
+    World(const size_t width_, const size_t height_, bool** w_);
 
     /*!
-     * \brief World destructor
+     * World destructor
      */
     ~World();
 
     /*!
-     * \brief Return world width
+     * Return world width
      *
      * \return
      *     World width
@@ -48,7 +48,7 @@ class World {
     size_t get_width();
 
     /*!
-     * \brief Return world height
+     * Return world height
      *
      * \return
      *     World height
@@ -56,37 +56,37 @@ class World {
     size_t get_height();
 
     /*!
-     * \brief Check if the cell is alive
+     * Check if the cell is alive
      *
-     * \param i
+     * \param i_
      *     Row
-     * \param j
-     *     Col
+     * \param j_
+     *     Column
      *
      * \return
      *     True if the cell is alive and false otherwise
      */
-    bool is_alive(const size_t i, const size_t j);
+    bool is_alive(const size_t i_, const size_t j_);
 
     /*!
-     * \brief Set a cell as alive
+     * Set a cell as alive
      *
-     * \param i
+     * \param i_
      *     Row
-     * \param j
-     *     Col
+     * \param j_
+     *     Column
      */
-    void set_alive(const size_t i, const size_t j);
+    void set_alive(const size_t i_, const size_t j_);
 
     /*!
-     * \brief Set a cell as dead
+     * Set a cell as dead
      *
-     * \param i
+     * \param i_
      *     Row
-     * \param j
-     *     Col
+     * \param j_
+     *     Column
      */
-    void set_dead(const size_t i, const size_t j);
+    void set_dead(const size_t i_, const size_t j_);
 };
 
-#endif /* _CASTOR_WORLD_HPP_ */
+#endif /* __CASTOR_WORLD_HPP__ */

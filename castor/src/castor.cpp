@@ -11,24 +11,9 @@
 #include <fstream>
 #include <iostream>
 #include "yaml-cpp/yaml.h"
+#include "printer.hpp"
 #include "utils.hpp"
 #include "world.hpp"
-
-/*!
- * \brief Print the world
- */
-void print(World* world) {
-  for (size_t i = 0; i < world->get_height(); i++) {
-    for (size_t j = 0; j < world->get_width(); j++) {
-      if (world->is_alive((size_t) i, (size_t) j)) {
-        std::cout << "*";
-      } else {
-        std::cout << ".";
-      }
-    }
-    std::cout << "\n";
-  }
-}
 
 int main(int argc, char* argv[]) {
   // Check arguments
@@ -45,7 +30,7 @@ int main(int argc, char* argv[]) {
       node["height"].as<size_t>(), node["key"].as<char>(), file);
     World* world = new World(node["width"].as<size_t>(),
       node["height"].as<size_t>(), w);
-    print(world);
+    printer::print(world);
     // Create CA
     // Apply CA rules
     // Save output?
