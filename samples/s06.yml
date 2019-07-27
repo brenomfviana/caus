@@ -1,0 +1,8 @@
+---
+title: tumbler
+width: 21
+height: 28
+rulestring: B3/S23
+key: "*"
+data: s06.txt
+generations: 20

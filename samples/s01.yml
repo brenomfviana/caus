@@ -5,3 +5,4 @@ height: 20
 rulestring: B3/S23
 key: "*"
 data: s01.txt
+generations: 20

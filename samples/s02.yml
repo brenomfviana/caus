@@ -1,0 +1,8 @@
+---
+title: cheshire_cat
+width: 10
+height: 10
+rulestring: B3/S23
+key: "*"
+data: s02.txt
+generations: 20
