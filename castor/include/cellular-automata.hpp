@@ -24,22 +24,6 @@ class CellularAutomata {
     std::vector<size_t> br; //< Birth rule
     std::vector<size_t> sr; //< Survive rule
 
-    /*!
-     * Apply birth rule
-     *
-     * \param world_
-     *     World
-     */
-    void birth_rule(World* world_);
-
-    /*!
-     * Apply death rule
-     *
-     * \param world_
-     *     World
-     */
-    void death_rule(World* world_);
-
   public:
     /*!
      * Cellular Automata constructor

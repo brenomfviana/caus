@@ -28,33 +28,19 @@ CellularAutomata::CellularAutomata(std::string rules_) {
   }
 }
 
-void CellularAutomata::birth_rule(World* world_) {
-  for (size_t i = 0; i < world_->get_width(); i++) {
-    for (size_t j = 0; j < world_->get_height(); j++) {
-      // Check if the cell is not alive
-      if (!world_->is_alive(i, j)) {
-        size_t nn = world_->get_no_neighbours(i, j);
-        for (size_t n : br) { if (n == nn) { world_->set_alive(i, j); } }
-      }
-    }
-  }
-}
-
-void CellularAutomata::death_rule(World* world_) {
+void CellularAutomata::apply_ca(World* world_) {
   for (size_t i = 0; i < world_->get_width(); i++) {
     for (size_t j = 0; j < world_->get_height(); j++) {
       // Check if the cell is alive
       if (world_->is_alive(i, j)) {
         size_t nn = world_->get_no_neighbours(i, j);
-        bool check = true;
-        for (size_t n : sr) { if (n == nn) { check = false; } }
-        if (check) { world_->set_dead(i, j); }
+        bool kill = true;
+        for (size_t n : sr) { if (n == nn) { kill = false; } }
+        if (kill) { world_->set_dead(i, j); }
+      } else {
+        size_t nn = world_->get_no_neighbours(i, j);
+        for (size_t n : br) { if (n == nn) { world_->set_alive(i, j); } }
       }
     }
   }
-}
-
-void CellularAutomata::apply_ca(World* world_) {
-  this->birth_rule(world_);
-  this->death_rule(world_);
 }

@@ -26,6 +26,6 @@ void Simulator::run() {
     this->ca->apply_ca(this->world);
     printer::print(this->world);
     std::cout << '\n';
-    usleep(1000);
+    usleep(500000);
   }
 }
