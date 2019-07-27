@@ -11,10 +11,8 @@
 #include <fstream>
 #include <iostream>
 #include "yaml-cpp/yaml.h"
-#include "printer.hpp"
 #include "reader.hpp"
 #include "simulator.hpp"
-#include "world.hpp"
 
 int main(int argc, char* argv[]) {
   // Check arguments
@@ -29,8 +27,11 @@ int main(int argc, char* argv[]) {
       node["height"].as<size_t>(), node["key"].as<char>(),
       (file.substr(0, file.find_last_of('/')) + '/' +
         node["data"].as<std::string>()));
+    // Create cellular automata
+    CellularAutomata* ca =
+      new CellularAutomata(node["rulestring"].as<std::string>());
     // Create simulator
-    Simulator s(world);
+    Simulator s(world, ca, node["generations"].as<size_t>());
     // Run simulation
     s.run();
   }

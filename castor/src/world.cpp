@@ -9,20 +9,19 @@
 
 #include "world.hpp"
 
-World::World(const size_t width_, const size_t height_, bool** w_) {
-  this->width = width_;
-  this->height = height_;
-  this->world = new bool *[this->height];
-  for (size_t i = 0; i < this->height; i++) {
-    this->world[i] = new bool[this->width];
-  }
-  // Set the population
-  for (size_t i = 0; i < this->height; i++) {
-    for (size_t j = 0; j < this->width; j++) {
-      this->world[i][j] = w_[i][j];
+World::World(const size_t width_, const size_t height_, bool** w_) :
+  width(width_), height(height_) {
+    this->world = new bool *[this->height];
+    for (size_t i = 0; i < this->height; i++) {
+      this->world[i] = new bool[this->width];
+    }
+    // Set the population
+    for (size_t i = 0; i < this->height; i++) {
+      for (size_t j = 0; j < this->width; j++) {
+        this->world[i][j] = w_[i][j];
+      }
     }
   }
-}
 
 World::~World() {
   for (size_t i = 0; i < this->height; i++) {
@@ -52,6 +51,16 @@ void World::set_dead(const size_t i_, const size_t j_) {
 }
 
 size_t World::get_no_neighbours(const size_t i_, const size_t j_) {
-  // TODO
-  return 0;
+  size_t counter = 0;
+  std::vector<int> dirs({ -1, 0, 1 });
+  for (int i : dirs) {
+    for (int j : dirs) {
+      // Check if is not the same cell and matrix boundaries
+      if (i_ != i && j_ != j && ((int) i_ + i) >= 0 && ((int) j_ + j) >= 0 &&
+        ((int) i_ + i) < this->width && ((int) j_ + j) < this->height) {
+          if (this->world[i_ + i][j_ + j]) { counter++; }
+      }
+    }
+  }
+  return counter;
 }

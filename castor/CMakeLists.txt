@@ -49,6 +49,7 @@ target_link_libraries(cellular-automata PUBLIC world)
 
 add_library(simulator src/simulator.cpp)
 target_include_directories(simulator PRIVATE include)
+target_link_libraries(cellular-automata PUBLIC printer)
 
 
 # ---------------------------------------------------------------------------- #

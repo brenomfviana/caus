@@ -10,7 +10,11 @@
 #ifndef __CASTOR_SIMULATOR_HPP__
 #define __CASTOR_SIMULATOR_HPP__
 
+#include <iostream>
 #include <string>
+#include <unistd.h>
+#include "cellular-automata.hpp"
+#include "printer.hpp"
 #include "world.hpp"
 
 /*!
@@ -19,6 +23,8 @@
 class Simulator {
   private:
     World* world; //< World
+    CellularAutomata* ca; //< Cellular automata
+    size_t max; //< Maximum number of generations
 
   public:
     /*!
@@ -26,8 +32,12 @@ class Simulator {
      *
      * \param world_
      *     World
+     * \param ca_
+     *     Cellular automata
+     * \param max_
+     *     Maximum number of generations
      */
-    Simulator(World* world_);
+    Simulator(World* world_, CellularAutomata* ca_, size_t max_);
 
     /*!
      * Get the world

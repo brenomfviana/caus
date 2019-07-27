@@ -10,7 +10,7 @@
 #ifndef __CASTOR_WORLD_HPP__
 #define __CASTOR_WORLD_HPP__
 
-#include <iostream>
+#include <vector>
 
 /*!
  * This class represents a cellular world

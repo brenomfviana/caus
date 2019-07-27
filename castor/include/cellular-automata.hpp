@@ -10,7 +10,10 @@
 #ifndef __CASTOR_CELLULAR_AUTOMATA_HPP__
 #define __CASTOR_CELLULAR_AUTOMATA_HPP__
 
+#include <iostream>
 #include <string>
+#include <sstream>
+#include <vector>
 #include "world.hpp"
 
 /*!
@@ -18,8 +21,8 @@
  */
 class CellularAutomata {
   private:
-    size_t br; //< Birth rule
-    size_t sr; //< Survive rule
+    std::vector<size_t> br; //< Birth rule
+    std::vector<size_t> sr; //< Survive rule
 
     /*!
      * Apply birth rule
