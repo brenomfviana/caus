@@ -37,12 +37,6 @@ Then, type the following command to run MAGOS:
 
 Add a gif.
 
-## Author
-
-[<img src="https://avatars2.githubusercontent.com/u/17532418?v=3&s=400" width="100"/>](https://github.com/brenov) |
----|
-[Breno Viana](https://github.com/brenov) |
-
 ## License
 
-This project is licensed under MIT license - see the [MIT](LICENSE) file for details.
+This project is licensed under MIT license - see the [LICENSE](LICENSE) file for details.
