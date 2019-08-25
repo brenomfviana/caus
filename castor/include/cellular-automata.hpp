@@ -24,6 +24,35 @@ class CellularAutomata {
     std::vector<size_t> br; //< Birth rule
     std::vector<size_t> sr; //< Survive rule
 
+    /*!
+     * Create a matrix with the number of the neighbours of each cell and
+     * return it
+     *
+     * \param world_
+     *     World
+     */
+    size_t** get_neighborhood(World* world_);
+
+    /*!
+     * Apply birth rule
+     *
+     * \param wn_
+     *     Neighborhood
+     * \param world_
+     *     World
+     */
+    void birth_rule(size_t** wn_, World* world_);
+
+    /*!
+     * Apply death rule
+     *
+     * \param wn_
+     *     Neighborhood
+     * \param world_
+     *     World
+     */
+    void death_rule(size_t** wn_, World* world_);
+
   public:
     /*!
      * Cellular Automata constructor

@@ -19,10 +19,10 @@ World Simulator::get_world() {
 void Simulator::run() {
   // Apply CA rules
   size_t i = 0;
-  std::cout << "Generation: " << i++ << '\n';
+  std::cout << "Generation: " << i << '\n';
   printer::print(this->world);
   while (i < this->max) {
-    std::cout << "Generation: " << i++ << '\n' << std::flush;
+    std::cout << "Generation: " << ++i << '\n' << std::flush;
     this->ca->apply_ca(this->world);
     printer::print(this->world);
     std::cout << '\n';
