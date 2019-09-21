@@ -13,7 +13,7 @@
 #include <vector>
 
 /*!
- * This class represents a cellular world
+ * This class represents a cellular world.
  */
 class World {
   private:
@@ -23,83 +23,92 @@ class World {
 
   public:
     /*!
-     * World constructor
+     * World constructor.
      *
-     * \param width_
-     *     World width
-     * \param height_
-     *     World height
-     * \param w_
-     *     World population
+     * \param width_ World width.
+     * \param height_ World height.
      */
-    World(const size_t width_, const size_t height_, bool** w_);
+    World(const size_t width_, const size_t height_);
 
     /*!
-     * World destructor
+     * World copy constructor.
+     *
+     * \param world_ World.
+     */
+    World(const World& world_);
+
+    /*!
+     * World destructor.
      */
     ~World();
 
     /*!
-     * Return world width
+     * Return world width.
      *
-     * \return
-     *     World width
+     * \return World width.
      */
-    size_t get_width();
+    const size_t get_width() const;
 
     /*!
-     * Return world height
+     * Return world height.
      *
-     * \return
-     *     World height
+     * \return World height.
      */
-    size_t get_height();
+    const size_t get_height() const;
 
     /*!
-     * Check if the cell is alive
+     * Check if the cell is alive.
      *
-     * \param i_
-     *     Row
-     * \param j_
-     *     Column
+     * \param i_ Row.
+     * \param j_ Column.
      *
-     * \return
-     *     True if the cell is alive and false otherwise
+     * \return True if the cell is alive and false otherwise.
      */
-    bool is_alive(const size_t i_, const size_t j_);
+    const bool is_alive(const size_t i_, const size_t j_) const;
 
     /*!
-     * Set a cell as alive
+     * Set a cell as alive.
      *
-     * \param i_
-     *     Row
-     * \param j_
-     *     Column
+     * \param i_ Row.
+     * \param j_ Column.
      */
     void set_alive(const size_t i_, const size_t j_);
 
     /*!
-     * Set a cell as dead
+     * Set a cell as dead.
      *
-     * \param i_
-     *     Row
-     * \param j_
-     *     Column
+     * \param i_ Row.
+     * \param j_ Column.
      */
     void set_dead(const size_t i_, const size_t j_);
 
     /*!
-     * Get number of alive neighbours
+     * Get number of alive neighbours.
      *
-     * \param i_
-     *     Row
-     * \param j_
-     *     Column
+     * \param i_ Row.
+     * \param j_ Column.
      *
-     * \return
-     *     The number of alive neighbours
+     * \return The number of alive neighbours.
      */
-    size_t get_no_neighbours(const size_t i_, const size_t j_);
+    const size_t get_no_neighbours(const size_t i_, const size_t j_) const;
+
+    /*!
+     * Equality operator.
+     *
+     * \param world_ A world.
+     *
+     * \return True if the worlds are the same and false otherwise.
+     */
+    const bool operator==(const World& world_) const;
+
+    /*!
+     * Difference operator.
+     *
+     * \param world_ A world.
+     *
+     * \return True if the worlds are not the same and false otherwise.
+     */
+    const bool operator!=(const World& world_) const;
 };
 
 #endif /* __CASTOR_WORLD_HPP__ */

@@ -11,23 +11,21 @@
 #define __CASTOR_READER_HPP__
 
 #include <fstream>
+#include <memory>
 #include "world.hpp"
 
 namespace reader {
   /*!
-   * Read the world
+   * Read the world.
    *
-   * \param width_
-   *     World width
-   * \param height_
-   *     World height
-   * \param key_
-   *     Cell key
-   * \param ppath_
-   *     Path file of world population
+   * \param world_ World.
+   * \param key_ Cell key.
+   * \param path_ Path file of world population.
+   *
+   * \return World.
    */
-  World* read(const size_t width_, const size_t height_, const char key_,
-    const std::string ppath_);
+  void read(std::shared_ptr<World> world, const char key_,
+    const std::string path_);
 }
 
 #endif /* __CASTOR_READER_HPP__ */

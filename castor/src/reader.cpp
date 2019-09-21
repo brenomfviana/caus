@@ -9,35 +9,30 @@
 
 #include "reader.hpp"
 
-World* reader::read(const size_t width_, const size_t height_, const char key_,
-  const std::string ppath_) {
-    // Create world
-    bool** w = new bool *[height_];
-    for (size_t i = 0; i < height_; i++) {
-      w[i] = new bool[width_];
-    }
-    for (size_t i = 0; i < height_; i++) {
-      for (size_t j = 0; j < width_; j++) {
-        w[i][j] = false;
-      }
-    }
-    // Read file
+void reader::read(std::shared_ptr<World> world, const char key_,
+  const std::string path_) {
+    // Auxiliary variables
     std::string line;
-    std::ifstream population;
-    population.open(ppath_);
-    if (population.is_open()) {
-      size_t i = 0, j = 0;
-      while (getline(population, line)) {
+    std::ifstream file;
+    // Read file
+    file.open(path_);
+    if (file.is_open()) {
+      size_t i = 0;
+      size_t j = 0;
+      while (getline(file, line)) {
+        // Check each char
         for(char& c : line) {
+          // If the char is equal to the key, so the cell is alive
           if (c == key_) {
-            w[i][j] = true;
+            world->set_alive(i, j);
           }
+          // Next char
           j++;
         }
+        // Next line
         j = 0;
         i++;
       }
-      population.close();
+      file.close();
     }
-    return new World(width_, height_, w);
-}
+  }
