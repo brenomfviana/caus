@@ -11,13 +11,14 @@
 #define __CASTOR_CELLULAR_AUTOMATA_HPP__
 
 #include <iostream>
+#include <memory>
 #include <string>
 #include <sstream>
 #include <vector>
 #include "world.hpp"
 
 /*!
- * This class represents a cellular automata
+ * This class represents a cellular automata.
  */
 class CellularAutomata {
   private:
@@ -25,50 +26,43 @@ class CellularAutomata {
     std::vector<size_t> sr; //< Survive rule
 
     /*!
-     * Create a matrix with the number of the neighbours of each cell and
+     * Create a matrix with the number of the neighbours of each cell and.
      * return it
      *
-     * \param world_
-     *     World
+     * \param world_ World.
      */
-    size_t** get_neighborhood(World* world_);
+    const size_t** get_neighborhood(const World& world_) const;
 
     /*!
-     * Apply birth rule
+     * Apply birth rule.
      *
-     * \param wn_
-     *     Neighborhood
-     * \param world_
-     *     World
+     * \param wn_ Neighborhood.
+     * \param world_ World.
      */
-    void birth_rule(size_t** wn_, World* world_);
+    void birth_rule(const size_t** wn_, std::shared_ptr<World> world_) const;
 
     /*!
-     * Apply death rule
+     * Apply death rule.
      *
-     * \param wn_
-     *     Neighborhood
-     * \param world_
-     *     World
+     * \param wn_ Neighborhood.
+     * \param world_ World.
      */
-    void death_rule(size_t** wn_, World* world_);
+    void death_rule(const size_t** wn_, std::shared_ptr<World> world_) const;
 
   public:
     /*!
-     * Cellular Automata constructor
+     * Cellular Automata constructor.
      *
-     * \param rules_
-     *     Cellular Automata rules (Format: "B/S")
+     * \param rules_ Cellular Automata rules (Format: "B/S").
      */
     CellularAutomata(std::string rules_);
 
     /*!
-     * Apply cellular automata rules
+     * Apply cellular automata rules.
      *
-     * \param world_
-     *     World
+     * \param world_ World.
      */
-    void apply_ca(World* world_);
+    void apply_ca(std::shared_ptr<World> world_) const;
 };
 
 #endif /* __CASTOR_CELLULAR_AUTOMATA_HPP__ */
