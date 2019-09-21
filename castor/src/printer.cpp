@@ -9,7 +9,15 @@
 
 #include "printer.hpp"
 
-void printer::print(World world_) {
+void printer::clear() {
+  std::cout << "\033[1;1H" << '\n';
+}
+
+void printer::reset() {
+  std::cout << "\033[2J" << '\n';
+}
+
+void printer::print(const World& world_) {
   for (size_t i = 0; i < world_.get_height(); i++) {
     for (size_t j = 0; j < world_.get_width(); j++) {
       if (world_.is_alive(i, j)) {
@@ -22,15 +30,6 @@ void printer::print(World world_) {
   }
 }
 
-void printer::print(World* world_) {
-  for (size_t i = 0; i < world_->get_height(); i++) {
-    for (size_t j = 0; j < world_->get_width(); j++) {
-      if (world_->is_alive(i, j)) {
-        std::cout << "*";
-      } else {
-        std::cout << ".";
-      }
-    }
-    std::cout << "\n";
-  }
+void print(const std::vector<World>& history_) {
+  
 }
