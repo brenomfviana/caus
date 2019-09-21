@@ -35,21 +35,21 @@ endif()
 add_library(world src/world.cpp)
 target_include_directories(world PRIVATE include)
 
-add_library(printer src/printer.cpp)
-target_include_directories(printer PRIVATE include)
-target_link_libraries(printer PUBLIC world)
-
 add_library(reader src/reader.cpp)
 target_include_directories(reader PRIVATE include)
-target_link_libraries(reader PUBLIC world)
+target_link_libraries(reader PRIVATE world)
+
+add_library(printer src/printer.cpp)
+target_include_directories(printer PRIVATE include)
+target_link_libraries(printer PRIVATE world)
 
 add_library(cellular-automata src/cellular-automata.cpp)
 target_include_directories(cellular-automata PRIVATE include)
-target_link_libraries(cellular-automata PUBLIC world)
+target_link_libraries(cellular-automata PRIVATE world)
 
 add_library(simulator src/simulator.cpp)
 target_include_directories(simulator PRIVATE include)
-target_link_libraries(cellular-automata PUBLIC printer)
+target_link_libraries(simulator PRIVATE printer)
 
 
 # ---------------------------------------------------------------------------- #

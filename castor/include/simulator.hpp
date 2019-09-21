@@ -11,46 +11,53 @@
 #define __CASTOR_SIMULATOR_HPP__
 
 #include <iostream>
+#include <memory>
 #include <string>
 #include <unistd.h>
+#include <vector>
 #include "cellular-automata.hpp"
 #include "printer.hpp"
 #include "world.hpp"
 
 /*!
- * This class represents a cellular life simulator
+ * This class represents a cellular life simulator.
  */
 class Simulator {
   private:
-    World* world; //< World
-    CellularAutomata* ca; //< Cellular automata
+    std::shared_ptr<World> world; //< World
+    std::unique_ptr<CellularAutomata> ca; //< Cellular automata
     size_t max; //< Maximum number of generations
+    std::vector<World> history; //< Evolution history
 
   public:
     /*!
-     * Simulator constructor
+     * Simulator constructor.
      *
-     * \param world_
-     *     World
-     * \param ca_
-     *     Cellular automata
-     * \param max_
-     *     Maximum number of generations
+     * \param max_ Maximum number of generations.
+     * \param world_ World.
+     * \param ca_ Cellular automata.
      */
-    Simulator(World* world_, CellularAutomata* ca_, size_t max_);
+    Simulator(size_t max_, std::shared_ptr<World> world_,
+      std::unique_ptr<CellularAutomata> ca_);
 
     /*!
-     * Get the world
+     * Get the world.
      *
-     * \return
-     *     World
+     * \return World.
      */
     World get_world();
 
     /*!
-     * Run simulation
+     * Run simulation.
      */
     void run();
+
+    /*!
+     * Check if the simulation reaches stability.
+     *
+     * \return True if the simulation reaches stability and false otherwise.
+     */
+    bool is_stable();
 };
 
 #endif /* __CASTOR_SIMULATOR_HPP__ */
