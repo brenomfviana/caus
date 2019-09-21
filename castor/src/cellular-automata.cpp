@@ -9,7 +9,7 @@
 
 #include "cellular-automata.hpp"
 
-CellularAutomata::CellularAutomata(std::string rules_) {
+CellularAutomata::CellularAutomata(std::string rules_) : rules(rules_) {
   // Get rules
   std::stringstream ss(rules_);
   std::string token;
@@ -74,4 +74,8 @@ void CellularAutomata::apply_ca(std::shared_ptr<World> world_) const {
   const size_t** wn = get_neighborhood(*world_);
   this->birth_rule(wn, world_);
   this->death_rule(wn, world_);
+}
+
+const std::string CellularAutomata::get_rules() const {
+  return this->rules;
 }

@@ -11,6 +11,7 @@
 #define __CASTOR_PRINTER_HPP__
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include "world.hpp"
 
@@ -27,11 +28,21 @@ namespace printer {
   void clear();
 
   /*!
+   * Print simulator header.
+   *
+   * \param rules_ Cellular automata rules.
+   * \param i_ Simulation iteration.
+   */
+  void header(const std::string rules_, int i_);
+
+  /*!
    * Print the world.
    *
+   * \param rules_ Cellular automata rules.
+   * \param i_ Simulation iteration.
    * \param world_ World.
    */
-  void print(const World& world_);
+  void print(std::string rules_, int i_, const World& world_);
 
   /*!
    * Print the simulation history in a file.

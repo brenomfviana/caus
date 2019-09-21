@@ -22,6 +22,7 @@
  */
 class CellularAutomata {
   private:
+    std::string rules; //< Cellular automata string rule
     std::vector<size_t> br; //< Birth rule
     std::vector<size_t> sr; //< Survive rule
 
@@ -63,6 +64,13 @@ class CellularAutomata {
      * \param world_ World.
      */
     void apply_ca(std::shared_ptr<World> world_) const;
+
+    /*!
+     * Apply cellular automata rules.
+     *
+     * \return A string that represents Cellular Automata rules.
+     */
+    const std::string get_rules() const;
 };
 
 #endif /* __CASTOR_CELLULAR_AUTOMATA_HPP__ */
