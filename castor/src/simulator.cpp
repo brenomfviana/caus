@@ -40,3 +40,20 @@ bool Simulator::is_stable() {
   }
   return false;
 }
+
+void Simulator::generate_world(std::shared_ptr<World> world_) {
+  // Seed
+  std::random_device seed;
+  // Random number generator
+  std::mt19937 gen = std::mt19937(seed());
+  // Set distribuition
+  std::uniform_int_distribution<> dis(0, 1);
+  // Build world
+  for (size_t i = 0; i < world_->get_height(); i++) {
+    for (size_t j = 0; j < world_->get_width(); j++) {
+      if (dis(gen) % 2 == 0) {
+        world_->set_alive(i, j);
+      }
+    }
+  }
+}

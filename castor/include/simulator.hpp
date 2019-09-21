@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <memory>
+#include <random>
 #include <string>
 #include <unistd.h>
 #include <vector>
@@ -58,6 +59,13 @@ class Simulator {
      * \return True if the simulation reaches stability and false otherwise.
      */
     bool is_stable();
+
+    /*!
+     * Generate a random world.
+     *
+     * \param world_ World.
+     */
+    static void generate_world(std::shared_ptr<World> world_);
 };
 
 #endif /* __CASTOR_SIMULATOR_HPP__ */
