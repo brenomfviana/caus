@@ -24,9 +24,12 @@ int main(int argc, char* argv[]) {
     // Check random flag
     if (std::string(argv[1]).compare("-rand") == 0) {
       // Check arguments
-      if (argc <= 3) {
+      if (argc <= 5) {
         std::cout << "CASTOR: Please enter the world dimensions, the " <<
           " rule string and the number of generations!\n";
+          std::cout << "   Format: ./castor -r <width> <height> " <<
+            "<string_rule> <max_number_of_generations>\n";
+          std::cout << "   Example: ./castor -r 20 20 B3/S23 20\n";
       } else {
         if (!utils::is_number(argv[2]) || !utils::is_number(argv[2])) {
           std::cout << "CASTOR: Invalid dimensions!\n";
@@ -51,7 +54,7 @@ int main(int argc, char* argv[]) {
             rules.substr(rules.find_last_of('/') + 1,
               rules.length());
           std::cout << rules << '\n';
-          std::string filename = "carw-" + std::string(argv[2]) + "-" +
+          std::string filename = "castor-history-" + std::string(argv[2]) + "-" +
             std::string(argv[3]) + "-" + rules + "-" +
               std::string(argv[5]) + ".txt";
           std::cout << filename << '\n';

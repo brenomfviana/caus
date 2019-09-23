@@ -44,8 +44,8 @@ const size_t** CellularAutomata::get_neighborhood(const World& world_) const {
 
 void CellularAutomata::birth_rule(const size_t** wn_,
   std::shared_ptr<World> world_) const {
-    for (size_t i = 0; i < world_->get_width(); i++) {
-      for (size_t j = 0; j < world_->get_height(); j++) {
+    for (size_t i = 0; i < world_->get_height(); i++) {
+      for (size_t j = 0; j < world_->get_width(); j++) {
         // Check if the cell is not alive
         if (!world_->is_alive(i, j)) {
           size_t nn = wn_[i][j];
@@ -57,8 +57,8 @@ void CellularAutomata::birth_rule(const size_t** wn_,
 
 void CellularAutomata::death_rule(const size_t** wn_,
   std::shared_ptr<World> world_) const {
-    for (size_t i = 0; i < world_->get_width(); i++) {
-      for (size_t j = 0; j < world_->get_height(); j++) {
+    for (size_t i = 0; i < world_->get_height(); i++) {
+      for (size_t j = 0; j < world_->get_width(); j++) {
         // Check if the cell is alive
         if (world_->is_alive(i, j)) {
           size_t nn = wn_[i][j];

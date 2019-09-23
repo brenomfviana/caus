@@ -58,6 +58,8 @@ void World::set_dead(const size_t i_, const size_t j_) {
   this->world[i_][j_] = false;
 }
 
+
+#include <iostream>
 const size_t World::get_no_neighbours(const size_t i_, const size_t j_) const {
   size_t counter = 0;
   std::vector<int> dirs({ -1, 0, 1 });
@@ -67,7 +69,7 @@ const size_t World::get_no_neighbours(const size_t i_, const size_t j_) const {
       if ((i == 0 && j != 0) || (i != 0 && j == 0) || (i != 0 && j != 0)) {
         // Check if is not the same cell and matrix boundaries
         if (((int) i_ + i) >= 0 && ((int) j_ + j) >= 0 &&
-          ((int) i_ + i) < this->width && ((int) j_ + j) < this->height) {
+          ((int) i_ + i) < this->height && ((int) j_ + j) < this->width) {
             if (this->world[i_ + i][j_ + j]) { counter++; }
         }
       }
