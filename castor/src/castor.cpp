@@ -45,6 +45,17 @@ int main(int argc, char* argv[]) {
           Simulator s(std::stoi(argv[5]), world, std::move(ca));
           // Run simulation
           s.run();
+          // Print history
+          std::string rules(argv[4]);
+          rules = rules.substr(0, rules.find_last_of('/')) +
+            rules.substr(rules.find_last_of('/') + 1,
+              rules.length());
+          std::cout << rules << '\n';
+          std::string filename = "carw-" + std::string(argv[2]) + "-" +
+            std::string(argv[3]) + "-" + rules + "-" +
+              std::string(argv[5]) + ".txt";
+          std::cout << filename << '\n';
+          printer::write(s.get_history(), filename);
         }
       }
     } else {
@@ -64,7 +75,8 @@ int main(int argc, char* argv[]) {
         reader::read(world, node["key"].as<char>(), path);
         // Create cellular automata
         std::unique_ptr<CellularAutomata> ca =
-          std::make_unique<CellularAutomata>(node["rulestring"].as<std::string>());
+          std::make_unique<CellularAutomata>
+            (node["rules"].as<std::string>());
         // Create simulator
         Simulator s(node["generations"].as<size_t>(), world, std::move(ca));
         // Run simulation

@@ -40,6 +40,30 @@ void printer::print(std::string rules_, int i_, const World& world_) {
   }
 }
 
-void print(const std::vector<World>& history_) {
-
+void printer::write(const std::vector<World>& history_, std::string filename_) {
+  // Create the history file
+  std::ofstream history;
+  history.open(filename_);
+  // Write history
+  history << "[Cellular Automata Simulation]" << '\n';
+  history << filename_ << '\n';
+  history << '\n';
+  int i = 0;
+  for (World w : history_) {
+    // Print world
+    history << "- Generation: " << ++i << '\n';
+    for (size_t i = 0; i < w.get_height(); i++) {
+      for (size_t j = 0; j < w.get_width(); j++) {
+        if (w.is_alive(i, j)) {
+          history << "*";
+        } else {
+          history << ".";
+        }
+      }
+      history << "\n";
+    }
+    history << "\n";
+  }
+  // Close the file
+  history.close();
 }

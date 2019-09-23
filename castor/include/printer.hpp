@@ -10,13 +10,13 @@
 #ifndef __CASTOR_PRINTER_HPP__
 #define __CASTOR_PRINTER_HPP__
 
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 #include "world.hpp"
 
 namespace printer {
-
   /*!
    * Reset the terminal.
    */
@@ -45,11 +45,12 @@ namespace printer {
   void print(std::string rules_, int i_, const World& world_);
 
   /*!
-   * Print the simulation history in a file.
+   * Write the simulation history in a file.
    *
    * \param history_ Simulation history.
+   * \param filename_ Filename.
    */
-  void print(const std::vector<World>& history_);
+  void write(const std::vector<World>& history_, std::string filename_);
 }
 
 #endif /* __CASTOR_PRINTER_HPP__ */

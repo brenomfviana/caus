@@ -17,6 +17,10 @@ World Simulator::get_world() {
   return *this->world;
 }
 
+std::vector<World> Simulator::get_history() {
+  return this->history;
+}
+
 void Simulator::run() {
   // Apply CA rules
   size_t i = 0;

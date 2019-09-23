@@ -22,7 +22,7 @@
  */
 class CellularAutomata {
   private:
-    std::string rules; //< Cellular automata string rule
+    std::string rules; //< Cellular automata rules
     std::vector<size_t> br; //< Birth rule
     std::vector<size_t> sr; //< Survive rule
 

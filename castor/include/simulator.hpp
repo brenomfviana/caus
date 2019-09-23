@@ -49,6 +49,13 @@ class Simulator {
     World get_world();
 
     /*!
+     * Get the simulation history.
+     *
+     * \return List of worlds.
+     */
+    std::vector<World> get_history();
+
+    /*!
      * Run simulation.
      */
     void run();
