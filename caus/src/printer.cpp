@@ -1,9 +1,9 @@
 /*
-  This file is part of CASTOR.
+  This file is part of CAUS.
 
   Copyright (c) 2019 by Breno Viana
 
-  CASTOR is a free software; you can redistribute it and/or modify it under the
+  CAUS is a free software; you can redistribute it and/or modify it under the
   terms of the MIT License.
 */
 
@@ -17,16 +17,16 @@ void printer::reset() {
   std::cout << "\033[2J" << '\n';
 }
 
-void printer::header(std::string rules_, int i_) {
-  std::cout << "CASTOR v1" << '\n';
-  std::cout << "- STRING RULE: " << rules_ << '\n';
+void printer::header(std::string rulestring_, int i_) {
+  std::cout << "CAUS v1" << '\n';
+  std::cout << "- STRING RULE: " << rulestring_ << '\n';
   std::cout << "- Generation: " << i_ << '\n';
   std::cout << '\n';
 }
 
-void printer::print(std::string rules_, int i_, const World& world_) {
-  // Print CASTOR header
-  header(rules_, i_);
+void printer::print(std::string rulestring_, int i_, const World& world_) {
+  // Print CAUS header
+  header(rulestring_, i_);
   // Print world
   for (size_t i = 0; i < world_.get_height(); i++) {
     for (size_t j = 0; j < world_.get_width(); j++) {

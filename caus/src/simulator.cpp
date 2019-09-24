@@ -1,9 +1,9 @@
 /*
-  This file is part of CASTOR.
+  This file is part of CAUS.
 
   Copyright (c) 2019 by Breno Viana
 
-  CASTOR is a free software; you can redistribute it and/or modify it under the
+  CAUS is a free software; you can redistribute it and/or modify it under the
   terms of the MIT License.
 */
 
@@ -26,11 +26,11 @@ void Simulator::run() {
   size_t i = 0;
   printer::clear();
   this->history.push_back(World(*this->world));
-  printer::print(this->ca->get_rules(), ++i, *this->world);
+  printer::print(this->ca->get_rulestring(), ++i, *this->world);
   while (i < this->max && !this->is_stable()) {
     printer::clear();
     this->ca->apply_ca(this->world);
-    printer::print(this->ca->get_rules(), ++i, *this->world);
+    printer::print(this->ca->get_rulestring(), ++i, *this->world);
     std::cout << '\n';
     this->history.push_back(World(*this->world));
     usleep(500000);

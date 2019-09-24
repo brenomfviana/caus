@@ -1,32 +1,33 @@
 /*
-  This file is part of CASTOR.
+  This file is part of CAUS.
 
   Copyright (c) 2019 by Breno Viana
 
-  CASTOR is a free software; you can redistribute it and/or modify it under the
+  CAUS is a free software; you can redistribute it and/or modify it under the
   terms of the MIT License.
 */
 
 #include "cellular-automata.hpp"
 
-CellularAutomata::CellularAutomata(std::string rules_) : rules(rules_) {
-  // Get rules
-  std::stringstream ss(rules_);
-  std::string token;
-  std::vector<std::string> rs;
-  while (std::getline(ss, token, '/')) {
-    rs.push_back(token);
+CellularAutomata::CellularAutomata(std::string rulestring_) :
+  rulestring(rulestring_) {
+    // Get rulestring
+    std::stringstream ss(rulestring_);
+    std::string token;
+    std::vector<std::string> rs;
+    while (std::getline(ss, token, '/')) {
+      rs.push_back(token);
+    }
+    // Set rulestring
+    std::string a = rs[0].substr(1);
+    for(char& c : a) {
+      this->br.push_back((size_t) (c - 48));
+    }
+    a = rs[1].substr(1);
+    for(char& c : a) {
+      this->sr.push_back((size_t) (c - 48));
+    }
   }
-  // Set rules
-  std::string a = rs[0].substr(1);
-  for(char& c : a) {
-    this->br.push_back((size_t) (c - 48));
-  }
-  a = rs[1].substr(1);
-  for(char& c : a) {
-    this->sr.push_back((size_t) (c - 48));
-  }
-}
 
 const size_t** CellularAutomata::get_neighborhood(const World& world_) const {
   size_t** wn = new size_t *[world_.get_height()];
@@ -76,6 +77,6 @@ void CellularAutomata::apply_ca(std::shared_ptr<World> world_) const {
   this->death_rule(wn, world_);
 }
 
-const std::string CellularAutomata::get_rules() const {
-  return this->rules;
+const std::string CellularAutomata::get_rulestring() const {
+  return this->rulestring;
 }

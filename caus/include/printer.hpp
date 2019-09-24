@@ -1,14 +1,14 @@
 /*
-  This file is part of CASTOR.
+  This file is part of CAUS.
 
   Copyright (c) 2019 by Breno Viana
 
-  CASTOR is a free software; you can redistribute it and/or modify it under the
+  CAUS is a free software; you can redistribute it and/or modify it under the
   terms of the MIT License.
 */
 
-#ifndef __CASTOR_PRINTER_HPP__
-#define __CASTOR_PRINTER_HPP__
+#ifndef __CAUS_PRINTER_HPP__
+#define __CAUS_PRINTER_HPP__
 
 #include <fstream>
 #include <iostream>
@@ -53,4 +53,4 @@ namespace printer {
   void write(const std::vector<World>& history_, std::string filename_);
 }
 
-#endif /* __CASTOR_PRINTER_HPP__ */
+#endif /* __CAUS_PRINTER_HPP__ */

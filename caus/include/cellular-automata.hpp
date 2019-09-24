@@ -1,14 +1,14 @@
 /*
-  This file is part of CASTOR.
+  This file is part of CAUS.
 
   Copyright (c) 2019 by Breno Viana
 
-  CASTOR is a free software; you can redistribute it and/or modify it under the
+  CAUS is a free software; you can redistribute it and/or modify it under the
   terms of the MIT License.
 */
 
-#ifndef __CASTOR_CELLULAR_AUTOMATA_HPP__
-#define __CASTOR_CELLULAR_AUTOMATA_HPP__
+#ifndef __CAUS_CELLULAR_AUTOMATA_HPP__
+#define __CAUS_CELLULAR_AUTOMATA_HPP__
 
 #include <iostream>
 #include <memory>
@@ -22,7 +22,7 @@
  */
 class CellularAutomata {
   private:
-    std::string rules; //< Cellular automata rules
+    std::string rulestring; //< Cellular automata rulestring
     std::vector<size_t> br; //< Birth rule
     std::vector<size_t> sr; //< Survive rule
 
@@ -54,23 +54,23 @@ class CellularAutomata {
     /*!
      * Cellular Automata constructor.
      *
-     * \param rules_ Cellular Automata rules (Format: "B/S").
+     * \param rulestring_ Cellular Automata rulestring (Format: "B/S").
      */
-    CellularAutomata(std::string rules_);
+    CellularAutomata(std::string rulestring_);
 
     /*!
-     * Apply cellular automata rules.
+     * Apply cellular automata rulestring.
      *
      * \param world_ World.
      */
     void apply_ca(std::shared_ptr<World> world_) const;
 
     /*!
-     * Apply cellular automata rules.
+     * Apply cellular automata rulestring.
      *
-     * \return A string that represents Cellular Automata rules.
+     * \return A string that represents Cellular Automata rulestring.
      */
-    const std::string get_rules() const;
+    const std::string get_rulestring() const;
 };
 
-#endif /* __CASTOR_CELLULAR_AUTOMATA_HPP__ */
+#endif /* __CAUS_CELLULAR_AUTOMATA_HPP__ */

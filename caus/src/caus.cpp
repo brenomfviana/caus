@@ -1,9 +1,9 @@
 /*
-  This file is part of CASTOR.
+  This file is part of CAUS.
 
   Copyright (c) 2019 by Breno Viana
 
-  CASTOR is a free software; you can redistribute it and/or modify it under the
+  CAUS is a free software; you can redistribute it and/or modify it under the
   terms of the MIT License.
 */
 
@@ -19,20 +19,20 @@
 int main(int argc, char* argv[]) {
   // Check arguments
   if (argc <= 1) {
-    std::cout << "CASTOR: Please enter the world file!\n";
+    std::cout << "CAUS: Please enter the world file!\n";
   } else {
     // Check random flag
     if (std::string(argv[1]).compare("-rand") == 0) {
       // Check arguments
       if (argc <= 5) {
-        std::cout << "CASTOR: Please enter the world dimensions, the " <<
+        std::cout << "CAUS: Please enter the world dimensions, the " <<
           " rule string and the number of generations!\n";
-          std::cout << "   Format: ./castor -r <width> <height> " <<
+          std::cout << "   Format: ./caus -r <width> <height> " <<
             "<string_rule> <max_number_of_generations>\n";
-          std::cout << "   Example: ./castor -r 20 20 B3/S23 20\n";
+          std::cout << "   Example: ./caus -r 20 20 B3/S23 20\n";
       } else {
         if (!utils::is_number(argv[2]) || !utils::is_number(argv[2])) {
-          std::cout << "CASTOR: Invalid dimensions!\n";
+          std::cout << "CAUS: Invalid dimensions!\n";
         } else {
           // Reset terminal screen
           printer::reset();
@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
             rules.substr(rules.find_last_of('/') + 1,
               rules.length());
           std::cout << rules << '\n';
-          std::string filename = "castor-history-" + std::string(argv[2]) + "-" +
+          std::string filename = "caus-history-" + std::string(argv[2]) + "-" +
             std::string(argv[3]) + "-" + rules + "-" +
               std::string(argv[5]) + ".txt";
           std::cout << filename << '\n';

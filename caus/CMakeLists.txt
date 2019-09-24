@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.13)
 
 include(FetchContent)
 
-project(castor
+project(caus
   VERSION 1.0.0
-  DESCRIPTION "CASTOR is a cellular automata simulator"
+  DESCRIPTION "CAUS is a cellular automata simulator"
   LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -60,7 +60,7 @@ target_link_libraries(simulator PRIVATE printer)
 # Executable
 # ---------------------------------------------------------------------------- #
 
-add_executable(${PROJECT_NAME} src/castor.cpp)
+add_executable(${PROJECT_NAME} src/caus.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE include
   ${yamlcpp_SOURCE_DIR}/include)
 target_link_libraries(${PROJECT_NAME} PUBLIC world utils reader printer
