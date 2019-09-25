@@ -29,9 +29,8 @@ void Simulator::run() {
   printer::print(this->ca->get_rulestring(), ++i, *this->world);
   while (i < this->max && !this->is_stable()) {
     printer::clear();
-    this->ca->apply_ca(this->world);
+    this->ca->apply_rules(this->world);
     printer::print(this->ca->get_rulestring(), ++i, *this->world);
-    std::cout << '\n';
     this->history.push_back(World(*this->world));
     usleep(500000);
   }

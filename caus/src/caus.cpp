@@ -8,6 +8,7 @@
 */
 
 #include <string>
+#include <exception>
 #include <fstream>
 #include <iostream>
 #include "yaml-cpp/yaml.h"
@@ -55,8 +56,8 @@ int main(int argc, char* argv[]) {
               rules.length());
           std::cout << rules << '\n';
           std::string filename = "caus-history-" + std::string(argv[2]) + "-" +
-            std::string(argv[3]) + "-" + rules + "-" +
-              std::string(argv[5]) + ".txt";
+            std::string(argv[3]) + "-" + rules + "-" + std::string(argv[5]) +
+            ".txt";
           std::cout << filename << '\n';
           printer::write(s.get_history(), filename);
         }
@@ -74,18 +75,20 @@ int main(int argc, char* argv[]) {
         // Get world description file path
         std::string path = file.substr(0, file.find_last_of('/')) + '/' +
           node["data"].as<std::string>();
-        // Populate the world
+        // Populate the world from a file
         reader::read(world, node["key"].as<char>(), path);
         // Create cellular automata
         std::unique_ptr<CellularAutomata> ca =
-          std::make_unique<CellularAutomata>
-            (node["rules"].as<std::string>());
+          std::make_unique<CellularAutomata>(node["rules"].as<std::string>());
         // Create simulator
         Simulator s(node["generations"].as<size_t>(), world, std::move(ca));
         // Run simulation
         s.run();
       } catch (YAML::BadFile& e) {
-        std::cout << "The selected file is invalid." << '\n';
+        std::cout << "CAUS: The selected file is invalid." << '\n';
+      } catch (std::exception& e) {
+        std::cout << "CAUS: Something wrong happened." << '\n';
+        std::cout << "  ERROR: " << e.what() << '\n';
       }
     }
   }

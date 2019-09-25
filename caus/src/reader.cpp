@@ -21,7 +21,7 @@ void reader::read(std::shared_ptr<World> world, const char key_,
       size_t j = 0;
       while (getline(file, line)) {
         // Check each char
-        for(char& c : line) {
+        for (char& c : line) {
           // If the char is equal to the key, so the cell is alive
           if (c == key_) {
             world->set_alive(i, j);

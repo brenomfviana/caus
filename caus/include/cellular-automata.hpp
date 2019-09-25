@@ -18,17 +18,17 @@
 #include "world.hpp"
 
 /*!
- * This class represents a cellular automata.
+ * This class represents a Cellular Automata.
  */
 class CellularAutomata {
   private:
-    std::string rulestring; //< Cellular automata rulestring
+    std::string rulestring; //< Cellular Automata rulestring
     std::vector<size_t> br; //< Birth rule
     std::vector<size_t> sr; //< Survive rule
 
     /*!
-     * Create a matrix with the number of the neighbours of each cell and.
-     * return it
+     * Create a matrix with the number of the neighbors of each cell and
+     * return it.
      *
      * \param world_ World.
      */
@@ -59,16 +59,16 @@ class CellularAutomata {
     CellularAutomata(std::string rulestring_);
 
     /*!
-     * Apply cellular automata rulestring.
+     * Apply Cellular Automata rules.
      *
      * \param world_ World.
      */
-    void apply_ca(std::shared_ptr<World> world_) const;
+    void apply_rules(std::shared_ptr<World> world_) const;
 
     /*!
-     * Apply cellular automata rulestring.
+     * Get the Cellular Automata rulestring.
      *
-     * \return A string that represents Cellular Automata rulestring.
+     * \return The Cellular Automata rulestring.
      */
     const std::string get_rulestring() const;
 };

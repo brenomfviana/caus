@@ -83,14 +83,14 @@ class World {
     void set_dead(const size_t i_, const size_t j_);
 
     /*!
-     * Get number of alive neighbours.
+     * Get number of alive neighbors.
      *
      * \param i_ Row.
      * \param j_ Column.
      *
-     * \return The number of alive neighbours.
+     * \return The number of alive neighbors.
      */
-    const size_t get_no_neighbours(const size_t i_, const size_t j_) const;
+    const size_t get_no_neighbors(const size_t i_, const size_t j_) const;
 
     /*!
      * Equality operator.

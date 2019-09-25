@@ -34,7 +34,9 @@ World::World(const World& world_) {
 }
 
 World::~World() {
-  for (size_t i = 0; i < this->height; i++) { delete [] this->world[i]; }
+  for (size_t i = 0; i < this->height; i++) {
+    delete [] this->world[i];
+  }
   delete [] this->world;
 }
 
@@ -60,7 +62,7 @@ void World::set_dead(const size_t i_, const size_t j_) {
 
 
 #include <iostream>
-const size_t World::get_no_neighbours(const size_t i_, const size_t j_) const {
+const size_t World::get_no_neighbors(const size_t i_, const size_t j_) const {
   size_t counter = 0;
   std::vector<int> dirs({ -1, 0, 1 });
   for (int i : dirs) {
@@ -70,7 +72,9 @@ const size_t World::get_no_neighbours(const size_t i_, const size_t j_) const {
         // Check if is not the same cell and matrix boundaries
         if (((int) i_ + i) >= 0 && ((int) j_ + j) >= 0 &&
           ((int) i_ + i) < this->height && ((int) j_ + j) < this->width) {
-            if (this->world[i_ + i][j_ + j]) { counter++; }
+            if (this->world[i_ + i][j_ + j]) {
+              counter++;
+            }
         }
       }
     }
@@ -79,11 +83,17 @@ const size_t World::get_no_neighbours(const size_t i_, const size_t j_) const {
 }
 
 const bool World::operator==(const World& world_) const {
-  if (this->width != world_.width) { return false; }
-  if (this->height != world_.height) { return false; }
+  if (this->width != world_.width) {
+    return false;
+  }
+  if (this->height != world_.height) {
+    return false;
+  }
   for (size_t i = 0; i < this->height; i++) {
     for (size_t j = 0; j < this->width; j++) {
-      if (this->world[i][j] != world_.world[i][j]) { return false; }
+      if (this->world[i][j] != world_.world[i][j]) {
+        return false;
+      }
     }
   }
   return true;

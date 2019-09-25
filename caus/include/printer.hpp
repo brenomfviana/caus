@@ -30,7 +30,7 @@ namespace printer {
   /*!
    * Print simulator header.
    *
-   * \param rules_ Cellular automata rules.
+   * \param rules_ Cellular Automata rules.
    * \param i_ Simulation iteration.
    */
   void header(const std::string rules_, int i_);
@@ -38,11 +38,11 @@ namespace printer {
   /*!
    * Print the world.
    *
-   * \param rules_ Cellular automata rules.
+   * \param rulestring_ Cellular Automata rulestring.
    * \param i_ Simulation iteration.
    * \param world_ World.
    */
-  void print(std::string rules_, int i_, const World& world_);
+  void print(std::string rulestring_, int i_, const World& world_);
 
   /*!
    * Write the simulation history in a file.

@@ -21,12 +21,12 @@
 #include "world.hpp"
 
 /*!
- * This class represents a cellular life simulator.
+ * This class represents a Cellular Automata Simulator.
  */
 class Simulator {
   private:
     std::shared_ptr<World> world; //< World
-    std::unique_ptr<CellularAutomata> ca; //< Cellular automata
+    std::unique_ptr<CellularAutomata> ca; //< Cellular Automata
     size_t max; //< Maximum number of generations
     std::vector<World> history; //< Evolution history
 
@@ -36,7 +36,7 @@ class Simulator {
      *
      * \param max_ Maximum number of generations.
      * \param world_ World.
-     * \param ca_ Cellular automata.
+     * \param ca_ Cellular Automata.
      */
     Simulator(size_t max_, std::shared_ptr<World> world_,
       std::unique_ptr<CellularAutomata> ca_);

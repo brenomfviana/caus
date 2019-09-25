@@ -18,14 +18,14 @@ void printer::reset() {
 }
 
 void printer::header(std::string rulestring_, int i_) {
-  std::cout << "CAUS v1" << '\n';
+  std::cout << "CAUS v1.0" << '\n';
   std::cout << "- STRING RULE: " << rulestring_ << '\n';
   std::cout << "- Generation: " << i_ << '\n';
   std::cout << '\n';
 }
 
 void printer::print(std::string rulestring_, int i_, const World& world_) {
-  // Print CAUS header
+  // Print CAUS headerif(
   header(rulestring_, i_);
   // Print world
   for (size_t i = 0; i < world_.get_height(); i++) {
