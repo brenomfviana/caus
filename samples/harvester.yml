@@ -4,5 +4,5 @@ width: 30
 height: 30
 rulestring: B3/S23
 key: "*"
-data: s04.txt
+data: harvester.txt
 generations: 20

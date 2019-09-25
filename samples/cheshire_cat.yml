@@ -4,5 +4,5 @@ width: 10
 height: 10
 rulestring: B3/S23
 key: "*"
-data: s02.txt
+data: cheshire_cat.txt
 generations: 20

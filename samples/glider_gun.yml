@@ -4,5 +4,5 @@ width: 12
 height: 40
 rulestring: B3/S23
 key: "*"
-data: s03.txt
+data: glider_gun.txt
 generations: 20

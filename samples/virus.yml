@@ -1,8 +1,8 @@
 ---
-title: tumbler
+title: virus
 width: 15
 height: 15
 rulestring: B3/S23
 key: "*"
-data: s05.txt
+data: virus.txt
 generations: 20

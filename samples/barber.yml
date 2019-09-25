@@ -4,5 +4,5 @@ width: 20
 height: 20
 rulestring: B3/S23
 key: "*"
-data: s01.txt
+data: barber.txt
 generations: 20
