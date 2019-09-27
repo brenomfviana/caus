@@ -7,6 +7,7 @@
   terms of the MIT License.
 */
 
+#include <iostream>
 #include <string>
 #include <exception>
 #include <fstream>
@@ -70,8 +71,8 @@ int main(int argc, char* argv[]) {
         // Reset terminal screen
         printer::reset();
         // Create world
-        std::shared_ptr<World> world = std::make_shared<World>(
-          node["width"].as<size_t>(), node["height"].as<size_t>());
+        std::shared_ptr<World> world = std::make_shared<World>
+          (node["width"].as<size_t>(), node["height"].as<size_t>());
         // Get world description file path
         std::string path = file.substr(0, file.find_last_of('/')) + '/' +
           node["data"].as<std::string>();
@@ -79,7 +80,8 @@ int main(int argc, char* argv[]) {
         reader::read(world, node["key"].as<char>(), path);
         // Create cellular automaton
         std::unique_ptr<CellularAutomata> ca =
-          std::make_unique<CellularAutomata>(node["rules"].as<std::string>());
+          std::make_unique<CellularAutomata>
+            (node["rulestring"].as<std::string>());
         // Create simulator
         Simulator s(node["generations"].as<size_t>(), world, std::move(ca));
         // Run simulation
