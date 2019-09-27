@@ -3,7 +3,7 @@
 ## Description
 
 CAUS is a cellular automaton simulator (its name is an acronym of Cellular
-AUtomata Simulator).
+AUtomaton Simulator).
 [Cellular Automata](https://en.wikipedia.org/wiki/Cellular_automaton) is a
 microstructure modeling, according to
 [Wikipedia]](https://en.wikipedia.org/wiki/Cellular_automaton),
@@ -64,7 +64,12 @@ Example:
 
 ## Preview
 
-Add a gif.
+<div style="margin: 0 auto; max-width: 250px;">
+	<p align="center">
+		<img height="350px" src =".github/preview/preview1.gif"/>
+		<img height="350px" src =".github/preview/preview2.gif"/>
+    </p>
+</div>
 
 ## License
 
