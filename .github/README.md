@@ -3,11 +3,7 @@
 ## Description
 
 CAUS is a cellular automata simulator (its name is an acronym of Cellular
-AUtomata Simulator).
-
-### Celluar Automata
-
-TODO
+AUtomata Simulator). Cellular Automata is a
 
 ### B/S notation.
 
@@ -29,13 +25,14 @@ cd build
 cmake ..
 ```
 
-Then, type the following command to run CAUS:
+Then, type the following command to run CAUS (see the [samples](samples)):
 
 ```
-./caus <ca-file>.yml
+./caus <cellular-automata-file>.yml
 ```
 
-or:
+Or generate a random world and set the rulestring manually by using the follow
+command:
 
 ```
 ./caus -rand <width> <height> <string_rule> <max_number_of_generations>
