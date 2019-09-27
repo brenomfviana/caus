@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
           // Create world
           std::shared_ptr<World> world = std::make_shared<World>(
             std::stoi(argv[2]), std::stoi(argv[3]));
-          // Create cellular automata
+          // Create cellular automaton
           std::unique_ptr<CellularAutomata> ca =
             std::make_unique<CellularAutomata>(std::string(argv[4]));
           // Populate world with random values
@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
           node["data"].as<std::string>();
         // Populate the world from a file
         reader::read(world, node["key"].as<char>(), path);
-        // Create cellular automata
+        // Create cellular automaton
         std::unique_ptr<CellularAutomata> ca =
           std::make_unique<CellularAutomata>(node["rules"].as<std::string>());
         // Create simulator

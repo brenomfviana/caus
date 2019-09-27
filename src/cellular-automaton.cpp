@@ -7,7 +7,7 @@
   terms of the MIT License.
 */
 
-#include "cellular-automata.hpp"
+#include "cellular-automaton.hpp"
 
 CellularAutomata::CellularAutomata(std::string rulestring_) :
   rulestring(rulestring_) {

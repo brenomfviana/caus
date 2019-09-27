@@ -16,7 +16,7 @@
 #include <string>
 #include <unistd.h>
 #include <vector>
-#include "cellular-automata.hpp"
+#include "cellular-automaton.hpp"
 #include "printer.hpp"
 #include "world.hpp"
 

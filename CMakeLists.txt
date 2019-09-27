@@ -4,7 +4,7 @@ include(FetchContent)
 
 project(caus
   VERSION 1.0.0
-  DESCRIPTION "CAUS is a cellular automata simulator"
+  DESCRIPTION "CAUS is a cellular automaton simulator"
   LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -47,9 +47,9 @@ add_library(printer src/printer.cpp)
 target_include_directories(printer PRIVATE include)
 target_link_libraries(printer PRIVATE world)
 
-add_library(cellular-automata src/cellular-automata.cpp)
-target_include_directories(cellular-automata PRIVATE include)
-target_link_libraries(cellular-automata PRIVATE world)
+add_library(cellular-automaton src/cellular-automaton.cpp)
+target_include_directories(cellular-automaton PRIVATE include)
+target_link_libraries(cellular-automaton PRIVATE world)
 
 add_library(simulator src/simulator.cpp)
 target_include_directories(simulator PRIVATE include)
@@ -64,4 +64,4 @@ add_executable(${PROJECT_NAME} src/caus.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE include
   ${yamlcpp_SOURCE_DIR}/include)
 target_link_libraries(${PROJECT_NAME} PUBLIC world utils reader printer
-  cellular-automata simulator yaml-cpp)
+  cellular-automaton simulator yaml-cpp)
