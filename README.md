@@ -66,8 +66,8 @@ Example:
 
 <div style="margin: 0 auto; max-width: 250px;">
 	<p align="center">
-		<img height="350px" src =".github/preview/preview1.gif"/>
-		<img height="350px" src =".github/preview/preview2.gif"/>
+		<img height="300px" src =".github/preview/preview1.gif"/>
+		<img height="300px" src =".github/preview/preview2.gif"/>
     </p>
 </div>
 
